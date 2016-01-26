@@ -39,5 +39,9 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
 
 	$scope.weatherResult = $scope.weatherAPI.get({ q : $scope.city, cnt: 2 });
 
+	$scope.convertToFarenheit = function(degreesK) {
+
+			return Math.round((1.8 * (degreesK - 273)) + 32);
+	}
 }]);
 
