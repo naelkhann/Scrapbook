@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<title>Weather Application by Nael Khan</title>
+		<meta charset="UTF-8">
+
+	<!-- loading bootstrap, angular, etc. from CDNs -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+		<script src="https://code.angularjs.org/1.5.0-rc.1/angular.min.js"></script>
+		<script src="https://code.angularjs.org/1.5.0-rc.1/angular-route.min.js"></script>
+		<script src="https://code.angularjs.org/1.5.0-rc.1/angular-resource.min.js"></script>
+
+		<script src="app.js"></script>
+	</head>
+
+	<body ng-app"weatherApp">
+		<header>
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">Weather</a>
+					</div>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-home"></i>Home </a></li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+
+		<div class="container-fluid">
+			Hello World
+			<div ng-view></div>
+		</div>
+
+	</body>
+
+</html>
+
+
