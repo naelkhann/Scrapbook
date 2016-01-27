@@ -15,6 +15,11 @@ weatherApp.config(function ($routeProvider) {
 			controller: 'forecastController'
 		})
 
+		.when('/forecast/:days', {
+			templateUrl: 'pages/forecast.htm',
+			controller: 'forecastController'
+		})
+
 });
 
 
@@ -32,12 +37,14 @@ weatherApp.controller('mainController', ['$scope', 'cityService', function($scop
 	})
 }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService){
+weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams, cityService){
 	$scope.city = cityService.city;
+
+	$scope.days = $routeParams.days || 2;
 
 	$scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?q=London&cnt=2&appid=44db6a862fba0b067b1930da0d769e98", {callback : "JSON_CALLBACK"}, {get: {method : "JSONP"}});
 
-	$scope.weatherResult = $scope.weatherAPI.get({ q : $scope.city, cnt: 2 });
+	$scope.weatherResult = $scope.weatherAPI.get({ q : $scope.city, cnt: $scope.days });
 
 	$scope.convertToFarenheit = function(degreesK) {
 
