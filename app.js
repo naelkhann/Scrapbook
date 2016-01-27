@@ -29,7 +29,7 @@ weatherApp.service('cityService', function(){
 	this.city = "New York, NY";
 })
 
-weatherApp.controller('mainController', ['$scope', '$location', 'cityService', function($scope, $location cityService){
+weatherApp.controller('mainController', ['$scope', '$location', 'cityService', function($scope, $location, cityService){
 	$scope.city = cityService.city;
 
 	$scope.$watch('city', function(){
@@ -37,7 +37,7 @@ weatherApp.controller('mainController', ['$scope', '$location', 'cityService', f
 	})
 
 	$scope.getForecast = function(){
-		$location.path("#/forecast");
+		$location.path("/forecast");
 	};
 }]);
 
